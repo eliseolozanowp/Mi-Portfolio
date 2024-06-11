@@ -67,7 +67,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
                     <div id="contactMessage" class="alert" role="alert" style="display: none;"></div>
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate" method="POST">
+                    <form id="contactForm" name="sentMessage" action="https://formsubmit.co/eliseoloz07@gmail.com" method="POST">
+                        <input type="hidden" name="_next" value="https://eliseolozanowp.github.io/mi-portfolio/contact.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Gracias por tu mensaje, te responderemos pronto.">
+            <input type="hidden" name="_cc" value="eliseoloz07@gmail.com">
                         <div class="form-floating mb-3">
                             <input class="form-control" id="name" name="name" type="text"
                                 placeholder="Introduce tu nombre..." required="required"
@@ -144,49 +148,6 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("contactForm");
-            const messageDiv = document.getElementById("contactMessage");
-
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const formData = new FormData(form);
-                fetch("send_email.php", {
-                        method: "POST",
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        messageDiv.style.display = "block";
-                        if (data.success) {
-                            messageDiv.classList.remove("alert-danger");
-                            messageDiv.classList.add("alert-success");
-                            messageDiv.textContent = data.message;
-                            form.reset();
-                        } else {
-                            messageDiv.classList.remove("alert-success");
-                            messageDiv.classList.add("alert-danger");
-                            messageDiv.textContent = data.message;
-                        }
-                        setTimeout(() => {
-                            messageDiv.style.display = "none";
-                        }, 3000);
-                    })
-                    .catch(error => {
-                        messageDiv.style.display = "block";
-                        messageDiv.classList.remove("alert-success");
-                        messageDiv.classList.add("alert-danger");
-                        messageDiv.textContent =
-                            "Hubo un error al enviar el formulario. Por favor intenta nuevamente.";
-                        setTimeout(() => {
-                            messageDiv.style.display = "none";
-                        }, 3000);
-                    });
-            });
-        });
-    </script>
 </body>
 
 </html>
