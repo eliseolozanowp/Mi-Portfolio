@@ -125,8 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const inicioLink = document.querySelector('nav ul li:nth-child(1) a');
         const acercaLink = document.querySelector('nav ul li:nth-child(2) a');
         const proyectosLink = document.querySelector('nav ul li:nth-child(3) a');
-        const interesesLink = document.querySelector('nav ul li:nth-child(4) a');
-        const contactoLink = document.querySelector('nav ul li:nth-child(5) a');
+        const contactoLink = document.querySelector('nav ul li:nth-child(4) a');
         
         if (inicioLink) inicioLink.textContent = traducciones[idiomaSeleccionado].inicio;
         if (acercaLink) acercaLink.textContent = traducciones[idiomaSeleccionado].acerca;
